@@ -25,12 +25,23 @@ public class JobTest {
     public void testJobConstructorSetsAllFields() {
         Job fieldTestJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
+        //        Your test should have 5 assert statements of each type.
+
         assertTrue(fieldTestJob instanceof Job);
         assertEquals(fieldTestJob.getName(), "Product tester");
+
+        assertTrue(fieldTestJob.getEmployer() instanceof Employer);
         assertEquals(fieldTestJob.getEmployer().getValue(), "ACME");
+
+        assertTrue(fieldTestJob.getLocation() instanceof Location);
         assertEquals(fieldTestJob.getLocation().getValue(), "Desert");
-        assertEquals(fieldTestJob.getPositionType().getValue(), "Quality control");
+
+        assertTrue(fieldTestJob.getPositionType() instanceof PositionType);
+        assertEquals(fieldTestJob.getPositionType().getValue(),"Quality control");
+
+        assertTrue(fieldTestJob.getCoreCompetency() instanceof CoreCompetency);
         assertEquals(fieldTestJob.getCoreCompetency().getValue(), "Persistence");
+
     }
 
     @Test
