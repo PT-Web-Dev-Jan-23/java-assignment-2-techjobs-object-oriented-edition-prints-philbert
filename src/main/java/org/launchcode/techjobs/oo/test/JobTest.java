@@ -53,5 +53,15 @@ public class JobTest {
 
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job startEndNewLineTestJob = new Job();
+
+        assertEquals(startEndNewLineTestJob.toString().charAt(0), '\n');
+        assertEquals(startEndNewLineTestJob.toString().charAt(startEndNewLineTestJob.toString().length()-1), '\n');
+
+    }
+
+
 
 }

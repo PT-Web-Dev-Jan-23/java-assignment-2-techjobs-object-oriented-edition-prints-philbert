@@ -31,6 +31,10 @@ public class Job {
         this.coreCompetency = aCoreCompetency;
 
     }
+    @Override
+    public String toString() {
+        return "\n\n";
+    }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
