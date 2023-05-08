@@ -55,13 +55,46 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
-        Job startEndNewLineTestJob = new Job();
+        Job startEndNewLineTestJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertEquals(startEndNewLineTestJob.toString().charAt(0), '\n');
+
         assertEquals(startEndNewLineTestJob.toString().charAt(startEndNewLineTestJob.toString().length()-1), '\n');
 
     }
 
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+
+        Job correctlyLabeledJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+
+
+        assertEquals(correctlyLabeledJob.toString(),  "\nID: " + correctlyLabeledJob.getId() + "\n" +
+                "Name: Product tester\n" +
+                "Employer: ACME\n" +
+                "Location: Desert\n" +
+                "Position Type: Quality control\n" +
+                "Core Competency: Persistence\n");
+
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+
+        Job jobWithEmptyFields = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        // if any value equals empty field the label should display 'Data not available'
+        // test with a job class of empty fields
+
+        assertEquals(jobWithEmptyFields.toString(),  "\nID: " + jobWithEmptyFields.getId() + "\n" +
+                "Name: Data not available\n" +
+                "Employer: Data not available\n" +
+                "Location: Data not available\n" +
+                "Position Type: Data not available\n" +
+                "Core Competency: Data not available\n");
+
+    }
 
 
 }
